@@ -19,6 +19,7 @@ class Libro(models.Model):
     editorial = models.ForeignKey(Editorial, on_delete=models.CASCADE)
     fecha_publicacion = models.DateField()
     precio = models.DecimalField(max_digits=6, decimal_places=0)
+    disponibilidad = models.BooleanField(default=True)
 
     class Meta:
         verbose_name_plural = "libros"

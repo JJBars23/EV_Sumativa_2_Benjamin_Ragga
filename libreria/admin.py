@@ -10,7 +10,7 @@ class EditorialAdmin(admin.ModelAdmin):
 
 @admin.register(Libro)
 class LibroAdmin(admin.ModelAdmin):
-    list_display = ('titulo', 'autor', 'editorial', 'fecha_publicacion', 'precio_formateado')
+    list_display = ('titulo', 'autor', 'editorial', 'fecha_publicacion', 'precio_formateado', 'disponibilidad')
     search_fields = ('titulo', 'autor')
-    list_filter = ('editorial', 'fecha_publicacion')
-    ordering = ('titulo',)
+    list_filter = ('editorial', 'fecha_publicacion', 'disponibilidad')
+    ordering = ('titulo', 'disponibilidad')

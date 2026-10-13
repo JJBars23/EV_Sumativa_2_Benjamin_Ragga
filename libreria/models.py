@@ -1,23 +1,27 @@
 from django.db import models
 
-class editorial(models.Model):
+class Editorial(models.Model):
     nombre = models.CharField(max_length=100)
+    pais = models.CharField(max_length=100)
     direccion = models.CharField(max_length=200)
     telefono = models.CharField(max_length=20)
 
-    class meta:
+
+    class Meta:
         verbose_name_plural = "editoriales"
 
     def __str__(self):
         return self.nombre
 
-class libro(models.Model):
+class Libro(models.Model):
     titulo = models.CharField(max_length=200)
     autor = models.CharField(max_length=100)
-    editorial = models.ForeignKey(editorial, on_delete=models.CASCADE)
+    editorial = models.ForeignKey(Editorial, on_delete=models.CASCADE)
     fecha_publicacion = models.DateField()
-    isbn = models.CharField(max_length=13)
     precio = models.DecimalField(max_digits=6, decimal_places=0)
+
+    class Meta:
+        verbose_name_plural = "libros"
 
     @property
     def precio_formateado(self):

@@ -6,6 +6,10 @@ class Editorial(models.Model):
     direccion = models.CharField(max_length=200)
     telefono = models.CharField(max_length=20)
 
+    @property
+    def telefono_formateado(self):
+        return f"+{self.telefono}"
+
 
     class Meta:
         verbose_name_plural = "editoriales"
@@ -26,7 +30,7 @@ class Libro(models.Model):
 
     @property
     def precio_formateado(self):
-        return f"${self.precio:,.0f}"
+        return f"${self.precio:,.0f}".replace(',', '.')
 
     def __str__(self):
         return self.titulo

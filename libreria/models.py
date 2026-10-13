@@ -6,11 +6,6 @@ class Editorial(models.Model):
     direccion = models.CharField(max_length=200)
     telefono = models.CharField(max_length=20)
 
-    @property
-    def telefono_formateado(self):
-        return f"+{self.telefono}"
-
-
     class Meta:
         verbose_name_plural = "editoriales"
 
